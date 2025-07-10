@@ -88,7 +88,10 @@ public class ArrayMap<K, V> implements Map<K, V> {
     }
 
     @Override
-    public Entry<K, V>[] entries() {
-        return Arrays.copyOf(array, size);
-    }
+	public Entry<K,V>[] entries(){
+		Entry<K,V>[] auxArray = (Entry<K,V>[])new Entrada[size];
+		for(int i=0;i<size;i++)
+			auxArray[i]=new Entrada(map[i].getKey(),map[i].getValue());
+		return auxArray;
+	}
 }
